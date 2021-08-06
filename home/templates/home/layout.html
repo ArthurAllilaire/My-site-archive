@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}">
+</head>
+<body>
+    <nav id="main-navbar">
+        <div class="nav-item">
+        {% url 'index' as current %}
+            <a href={{current}}
+            {% if request.path == current %}
+            id="active-item"
+            {% endif %}
+            >Home</a>
+        </div>
+        {% url 'about' as current %}
+        <div class="nav-item">
+            <a href={{current}}
+            {% if request.path == current %}
+            id="active-item"
+            {% endif %}>About</a>
+        </div>
+        <div class="nav-item">
+        {% url 'projects' as current %}
+            <a href={{current}}
+            {% if request.path == current %}
+            id="active-item"
+            {% endif %}>Projects</a>
+        </div>
+        <div class="nav-item">
+            {% url 'articles' as current %}
+            <a href={{current}}
+            {% if request.path == current %}
+            id="active-item"
+            {% endif %}>Articles</a>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>

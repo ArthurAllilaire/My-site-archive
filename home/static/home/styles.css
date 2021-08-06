@@ -1,0 +1,26 @@
+body {
+  color: red;
+  font-size: 1.2em;
+}
+
+#main-navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#main-navbar .nav-item {
+  padding: 10px;
+}
+
+#main-navbar .nav-item #active-item {
+  color: aqua;
+}
+/*# sourceMappingURL=styles.css.map */
