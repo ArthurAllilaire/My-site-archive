@@ -8,6 +8,24 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
+
+
+Database stuff:
+Set up using: https: // djangocentral.com/using-postgresql-with-django/
+Name = mysite
+User = arthur
+password = jingleBells1
+ALTER ROLE arthur SET client_encoding TO 'utf8'
+ALTER ROLE arthur SET default_transaction_isolation TO 'read committed'
+ALTER ROLE arthur SET timezone TO 'UTC'
+
+GRANT ALL PRIVILEGES ON DATABASE eduplex TO arthur
+
+superuser:
+arthur
+email: eduplexhq@gmail.com
+password: jingleBells1
+
 """
 
 from pathlib import Path
@@ -76,8 +94,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mysite',
+        'USER': 'arthur',
+        'PASSWORD': 'jingleBells1',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
